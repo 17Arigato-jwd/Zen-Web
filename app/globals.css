@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+
+/*
+ * Organic Glass design tokens — see app/CLAUDE.md.
+ * These CSS variables are the single source of truth for brand color/theming.
+ * UI components consume them; do not reintroduce Tailwind's default palette
+ * for brand elements.
+ */
+:root {
+  --bg-base: #f6f1e4; /* warm cream, never pure white */
+  --text-main: #241c12; /* deep espresso brown, not pure black */
+  --accent-sage: #5f7a52; /* moss green — primary accent */
+  --accent-terracotta: #c1682f; /* clay orange — secondary accent */
+  --accent-gold: #d9a441; /* turmeric gold — sparing highlight only */
+  --glass-surface: rgba(255, 255, 255, 0.14);
+  --glass-surface-strong: rgba(255, 255, 255, 0.22);
+  --glass-border: rgba(255, 255, 255, 0.35);
+}
+
+/* Expose brand tokens to Tailwind v4 utilities (e.g. text-accent-sage). */
+@theme inline {
+  --color-bg-base: var(--bg-base);
+  --color-text-main: var(--text-main);
+  --color-accent-sage: var(--accent-sage);
+  --color-accent-terracotta: var(--accent-terracotta);
+  --color-accent-gold: var(--accent-gold);
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-main);
+}
