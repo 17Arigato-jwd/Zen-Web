@@ -56,8 +56,14 @@ export interface ProductsContent {
 export type MarketplacePlatform = 'Amazon.in' | 'Meesho';
 
 export interface ProductListing {
-  /** Listing title. Placeholder until the client confirms the exact product name. */
+  /** Product title (concise — the brand name is shown separately on the card). */
   title: string;
+  /** One-line factual descriptor of the product. */
+  description?: string;
+  /** Current selling price as shown on the listing, e.g. "₹199". May go stale. */
+  price?: string;
+  /** Struck-through MRP, e.g. "₹500". Rendered only when price is also set. */
+  mrp?: string;
   platform: MarketplacePlatform;
   /** Deep link to the live listing on the retailer's site. */
   url: string;
@@ -382,7 +388,8 @@ export const shopContent: ShopContent = {
     {
       id: "ceramix",
       name: "Ceramix",
-      blurb: "A Zen Enterprises brand, available on Amazon.in and Meesho.",
+      blurb:
+        "A Zen Enterprises brand of concrete home-décor and organizers, available on Amazon.in and Meesho.",
       logo: {
         src: "https://placehold.co/240x240/C1682F/F6F1E4?text=Ceramix",
         alt: "Ceramix brand logo (placeholder — client will provide)",
@@ -392,12 +399,18 @@ export const shopContent: ShopContent = {
       platforms: ["Amazon.in", "Meesho"],
       listings: [
         {
-          title: "Ceramix Product",
+          title: "Concrete Striped Round Jar",
+          description:
+            "Multipurpose concrete jar — jewellery, makeup & table organizer and home-décor accessory.",
+          price: "₹199",
+          mrp: "₹500",
           platform: "Amazon.in",
           url: "https://amzn.in/d/0edN1CSz",
           image: {
-            src: "https://placehold.co/600x600/5F7A52/F6F1E4?text=Ceramix+Product",
-            alt: "Placeholder for a Ceramix product photo, available on Amazon.in",
+            // TODO: replace with the real product photo at
+            // public/images/ceramix-concrete-jar.jpg (a one-line src swap).
+            src: "https://placehold.co/600x600/5F7A52/F6F1E4?text=Concrete+Striped+Round+Jar",
+            alt: "Ceramix Concrete Striped Round Jar — a concrete organizer and home-décor accessory (placeholder image)",
             width: 600,
             height: 600,
           },

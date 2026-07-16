@@ -117,10 +117,14 @@ Intro: Products from Zen Enterprises brands like Ceramix are already available o
 - Platforms: Amazon.in, Meesho
 - Product listings:
 
-| Title | Platform | URL | Status |
-|---|---|---|---|
-| Ceramix Product (name TBC — client to confirm listing title) | Amazon.in | https://amzn.in/d/0edN1CSz | ✅ Link provided |
-| — | Meesho | — | ⬜ Awaiting links from client |
+| Title | Platform | Price | URL | Status |
+|---|---|---|---|---|
+| Concrete Striped Round Jar (full listing: "Ceramix® \| Concrete Striped Round Jar \| Jewellery/Makeup/Table Organizer \| Home Decor \| Multipurpose Table Accessory") | Amazon.in | ₹199 (MRP ₹500) | https://amzn.in/d/0edN1CSz | ✅ Confirmed by client |
+| — | Meesho | — | — | ⬜ Awaiting links from client |
+
+Notes:
+- Price (₹199 / MRP ₹500) is a live Amazon figure and can go stale — update here + `zen-content.ts` if it changes, or remove the `price`/`mrp` fields to hide it.
+- Real product photo still needed → `public/images/ceramix-concrete-jar.jpg` (currently a labelled placeholder).
 
 More brands to be added here as the client provides names, logos, and listing URLs. Product links open on the retailer's site — Amazon/Meesho do not permit iframe embedding, so listings are shown as rich link cards.
 

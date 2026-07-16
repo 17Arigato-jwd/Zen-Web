@@ -17,7 +17,7 @@ const PLATFORM_CTA: Record<MarketplacePlatform, string> = {
  * listing on the retailer's site in a new tab instead.
  */
 export default function ProductEmbedCard({ listing }: ProductEmbedCardProps) {
-  const { title, platform, url, image } = listing;
+  const { title, description, price, mrp, platform, url, image } = listing;
   return (
     <GlassCard as="article" lift className="flex h-full flex-col overflow-hidden">
       <div className="zoom-frame overflow-hidden">
@@ -31,12 +31,27 @@ export default function ProductEmbedCard({ listing }: ProductEmbedCardProps) {
       </div>
       <div className="flex flex-1 flex-col p-5">
         <span className="badge w-fit">{platform}</span>
-        <h4 className="mt-3 font-display text-lg font-semibold">{title}</h4>
+        <h4 className="mt-3 font-display text-lg font-semibold text-balance">
+          {title}
+        </h4>
+        {description && (
+          <p className="mt-2 text-sm/6 text-text-soft">{description}</p>
+        )}
+        {price && (
+          <p className="mt-3 flex items-baseline gap-2">
+            <span className="font-display text-xl font-bold text-accent-terracotta">
+              {price}
+            </span>
+            {mrp && (
+              <span className="text-sm text-text-soft line-through">{mrp}</span>
+            )}
+          </p>
+        )}
         <a
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn btn-primary mt-4 self-start text-sm"
+          className="btn btn-primary mt-5 self-start text-sm"
         >
           {PLATFORM_CTA[platform]}
           <svg
