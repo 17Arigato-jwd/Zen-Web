@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -25,8 +25,28 @@ function normalizePath(path: string): string {
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const { logo, siteName } = globalContent;
+
+  // Strengthen the glass + tighten the bar once the page scrolls. rAF-throttled
+  // passive listener keeps it cheap on low-end devices.
+  useEffect(() => {
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 8);
+        frame = 0;
+      });
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
 
   const isActive = (href: string): boolean =>
     normalizePath(pathname) === normalizePath(href);
@@ -37,10 +57,14 @@ export default function Nav() {
       : 'hover:bg-[var(--glass-surface-strong)]';
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 px-3 pt-3 sm:px-6 sm:pt-4">
+    <header className="nav-enter fixed inset-x-0 top-0 z-40 px-3 pt-3 sm:px-6 sm:pt-4">
       <nav
         aria-label="Primary"
-        className="glass mx-auto max-w-6xl rounded-3xl px-4 sm:px-6"
+        className={`mx-auto max-w-6xl rounded-3xl px-4 transition-all duration-300 sm:px-6 ${
+          scrolled
+            ? 'glass shadow-[0_10px_40px_rgba(95,122,82,0.22)]'
+            : 'border border-transparent bg-[var(--glass-surface)] backdrop-blur-md'
+        }`}
       >
         <div className="flex min-h-16 items-center justify-between gap-4 py-2">
           <Link
@@ -99,24 +123,26 @@ export default function Nav() {
           </button>
         </div>
 
-        <ul
-          id="mobile-nav"
-          hidden={!open}
-          className="border-t border-[var(--glass-border)] py-3 sm:hidden"
-        >
-          {NAV_LINKS.map(({ href, label }) => (
-            <li key={href}>
-              <Link
-                href={href}
-                aria-current={isActive(href) ? 'page' : undefined}
-                onClick={() => setOpen(false)}
-                className={`flex min-h-11 items-center rounded-2xl px-4 py-2 font-semibold ${linkClasses(href)}`}
-              >
-                {label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {open && (
+          <ul
+            id="mobile-nav"
+            className="reveal border-t border-[var(--glass-border)] py-3 sm:hidden"
+          >
+            {NAV_LINKS.map(({ href, label }, index) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  aria-current={isActive(href) ? 'page' : undefined}
+                  onClick={() => setOpen(false)}
+                  className={`reveal flex min-h-11 items-center rounded-2xl px-4 py-2 font-semibold ${linkClasses(href)}`}
+                  style={{ animationDelay: `${index * 60}ms` }}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
       </nav>
     </header>
   );

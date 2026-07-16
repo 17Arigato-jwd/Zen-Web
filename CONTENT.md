@@ -109,6 +109,21 @@ Tagline: *Opportunities for entrepreneurs with minimal infrastructure.*
 - Rural BPO services
 - Business registration support
 
+### Shop Online — Zen Brands on E-commerce
+Intro: Products from Zen Enterprises brands like Ceramix are already available on e-commerce platforms like Amazon.in and Meesho — shop them under their respective brands.
+
+#### Brand — Ceramix
+- Logo: pending from client (placeholder until supplied — `public/images/ceramix-logo.png`)
+- Platforms: Amazon.in, Meesho
+- Product listings:
+
+| Title | Platform | URL | Status |
+|---|---|---|---|
+| Ceramix Product (name TBC — client to confirm listing title) | Amazon.in | https://amzn.in/d/0edN1CSz | ✅ Link provided |
+| — | Meesho | — | ⬜ Awaiting links from client |
+
+More brands to be added here as the client provides names, logos, and listing URLs. Product links open on the retailer's site — Amazon/Meesho do not permit iframe embedding, so listings are shown as rich link cards.
+
 ### Zen Solutions
 Intro: Zen Enterprises provides complete support to transform ideas into successful businesses.
 - Business Opportunity Identification
@@ -166,5 +181,7 @@ Not covered by text — track what real photo/asset belongs in each slot. Update
 | Home Manufacturing category photo | Products | "Tailoring / Handicrafts" | ⬜ Placeholder |
 | Digital & Service category photo | Products | "Digital Services" | ⬜ Placeholder |
 | Contact page image | Contact | "Join the Journey" | ⬜ Placeholder |
+| Ceramix brand logo | Products (Shop Online) | "Ceramix" | ⬜ Placeholder — client will provide |
+| Ceramix product photo | Products (Shop Online) | "Ceramix Product" | ⬜ Placeholder |
 
 See `CLAUDE.md` → "Image & Asset Handling" for the placeholder convention (placehold.co, on-brand colors, real `next/image` usage).
