@@ -52,6 +52,37 @@ export interface ProductsContent {
   whyChooseZen: { heading: string; items: string[] };
 }
 
+/** E-commerce platforms Zen brand products are listed on. */
+export type MarketplacePlatform = 'Amazon.in' | 'Meesho';
+
+export interface ProductListing {
+  /** Listing title. Placeholder until the client confirms the exact product name. */
+  title: string;
+  platform: MarketplacePlatform;
+  /** Deep link to the live listing on the retailer's site. */
+  url: string;
+  image: ImageSlot;
+}
+
+export interface Brand {
+  id: string;
+  name: string;
+  /** Short brand descriptor. Keep factual — no invented claims. */
+  blurb: string;
+  logo: ImageSlot;
+  platforms: MarketplacePlatform[];
+  listings: ProductListing[];
+}
+
+export interface ShopContent {
+  eyebrow: string;
+  heading: string;
+  intro: string;
+  /** Note explaining links open on the retailer's site (no iframe embedding allowed). */
+  disclosure: string;
+  brands: Brand[];
+}
+
 export interface GlobalContent {
   siteName: string;
   taglines: { main: string; sub: string };
@@ -331,4 +362,47 @@ export const productsContent: ProductsContent = {
       "Designed for Growth",
     ],
   },
+};
+
+/**
+ * "Shop Online" — Zen brand products already live on e-commerce marketplaces.
+ * Amazon.in and Meesho forbid iframe embedding (X-Frame-Options), so listings
+ * render as rich link cards that open on the retailer's site rather than true
+ * inline embeds. Product titles/images are placeholders until the client
+ * confirms exact listings; only the provided deep link is real.
+ */
+export const shopContent: ShopContent = {
+  eyebrow: "Shop Online",
+  heading: "Zen Brands on E-commerce",
+  intro:
+    "Products from Zen Enterprises brands are already available on leading e-commerce platforms. Explore them under their respective brands and shop directly on Amazon.in and Meesho.",
+  disclosure:
+    "Links open the live listing on the retailer's website. Product names and images shown here are placeholders until each listing is confirmed.",
+  brands: [
+    {
+      id: "ceramix",
+      name: "Ceramix",
+      blurb: "A Zen Enterprises brand, available on Amazon.in and Meesho.",
+      logo: {
+        src: "https://placehold.co/240x240/C1682F/F6F1E4?text=Ceramix",
+        alt: "Ceramix brand logo (placeholder — client will provide)",
+        width: 240,
+        height: 240,
+      },
+      platforms: ["Amazon.in", "Meesho"],
+      listings: [
+        {
+          title: "Ceramix Product",
+          platform: "Amazon.in",
+          url: "https://amzn.in/d/0edN1CSz",
+          image: {
+            src: "https://placehold.co/600x600/5F7A52/F6F1E4?text=Ceramix+Product",
+            alt: "Placeholder for a Ceramix product photo, available on Amazon.in",
+            width: 600,
+            height: 600,
+          },
+        },
+      ],
+    },
+  ],
 };

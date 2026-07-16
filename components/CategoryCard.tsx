@@ -14,13 +14,15 @@ export default function CategoryCard({
   const { name, tagline, items, image } = category;
   return (
     <GlassCard as="article" lift className={`overflow-hidden ${className}`.trim()}>
-      <Image
-        src={image.src}
-        alt={image.alt}
-        width={image.width}
-        height={image.height}
-        className="h-56 w-full object-cover sm:h-64"
-      />
+      <div className="zoom-frame overflow-hidden">
+        <Image
+          src={image.src}
+          alt={image.alt}
+          width={image.width}
+          height={image.height}
+          className="zoom-media h-56 w-full object-cover sm:h-64"
+        />
+      </div>
       <div className="p-6 sm:p-8">
         <h3 className="font-display text-2xl font-semibold">{name}</h3>
         <p className="mt-2 text-sm font-semibold text-accent-sage-deep italic">

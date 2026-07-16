@@ -62,7 +62,7 @@ export default function HomePage() {
       {/* About Us */}
       <section
         aria-labelledby="about-heading"
-        className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24"
+        className="scroll-reveal mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24"
       >
         <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <GlassCard className="p-2 sm:p-3">
@@ -90,7 +90,7 @@ export default function HomePage() {
       {/* Vision & Mission — asymmetric two-card band */}
       <section
         aria-label="Our vision and mission"
-        className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24"
+        className="scroll-reveal mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24"
       >
         <div className="grid gap-6 lg:grid-cols-5 lg:gap-8">
           <GlassCard as="article" className="p-8 sm:p-10 lg:col-span-2">
@@ -123,7 +123,7 @@ export default function HomePage() {
       {/* What We Build */}
       <section
         aria-labelledby="what-we-build-heading"
-        className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24"
+        className="scroll-reveal mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24"
       >
         <SectionHeading
           id="what-we-build-heading"
@@ -144,7 +144,7 @@ export default function HomePage() {
       {/* The Zen Model */}
       <section
         aria-labelledby="zen-model-heading"
-        className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24"
+        className="scroll-reveal mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24"
       >
         <SectionHeading
           id="zen-model-heading"
@@ -191,7 +191,7 @@ export default function HomePage() {
       {/* Aims to Achieve by 2030 */}
       <section
         aria-labelledby="goals-heading"
-        className="mx-auto max-w-6xl px-4 py-16 pb-8 sm:px-6 lg:py-24 lg:pb-12"
+        className="scroll-reveal mx-auto max-w-6xl px-4 py-16 pb-8 sm:px-6 lg:py-24 lg:pb-12"
       >
         <SectionHeading
           id="goals-heading"

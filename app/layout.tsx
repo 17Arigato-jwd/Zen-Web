@@ -41,9 +41,9 @@ export default function RootLayout({
             surfaces refract (app/CLAUDE.md §3). Fixed so panels scroll over it. */}
         <div aria-hidden="true" className="fixed inset-0 -z-10 overflow-hidden">
           <div className="absolute inset-0 bg-linear-to-br from-accent-sage/20 via-bg-base to-accent-terracotta/15" />
-          <div className="absolute -top-40 -left-40 h-[36rem] w-[36rem] rounded-full bg-accent-sage/25 blur-3xl" />
-          <div className="absolute top-1/3 -right-44 h-[32rem] w-[32rem] rounded-full bg-accent-terracotta/20 blur-3xl" />
-          <div className="absolute -bottom-40 left-1/4 h-[28rem] w-[28rem] rounded-full bg-accent-gold/15 blur-3xl" />
+          <div className="blob-a absolute -top-40 -left-40 h-[36rem] w-[36rem] rounded-full bg-accent-sage/25 blur-3xl" />
+          <div className="blob-b absolute top-1/3 -right-44 h-[32rem] w-[32rem] rounded-full bg-accent-terracotta/20 blur-3xl" />
+          <div className="blob-c absolute -bottom-40 left-1/4 h-[28rem] w-[28rem] rounded-full bg-accent-gold/15 blur-3xl" />
         </div>
         <Nav />
         <main id="main">{children}</main>

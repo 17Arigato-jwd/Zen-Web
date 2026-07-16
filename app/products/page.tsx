@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import BrandShowcase from '@/components/BrandShowcase';
 import CategoryCard from '@/components/CategoryCard';
 import GlassCard from '@/components/GlassCard';
 import SectionHeading from '@/components/SectionHeading';
@@ -47,7 +48,7 @@ export default function ProductsPage() {
           {categories.map((category, index) => (
             <li
               key={category.id}
-              className={CATEGORY_LAYOUT[index] ?? 'lg:col-span-6'}
+              className={`scroll-reveal ${CATEGORY_LAYOUT[index] ?? 'lg:col-span-6'}`}
             >
               <CategoryCard category={category} className="h-full" />
             </li>
@@ -55,10 +56,13 @@ export default function ProductsPage() {
         </ul>
       </section>
 
+      {/* Shop Online — Zen brands live on Amazon.in / Meesho */}
+      <BrandShowcase />
+
       {/* Zen Solutions */}
       <section
         aria-labelledby="zen-solutions-heading"
-        className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24"
+        className="scroll-reveal mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24"
       >
         <SectionHeading
           id="zen-solutions-heading"
@@ -87,7 +91,7 @@ export default function ProductsPage() {
       {/* Why to Choose Zen? */}
       <section
         aria-labelledby="why-zen-heading"
-        className="mx-auto max-w-6xl px-4 py-16 pb-8 sm:px-6 lg:py-24 lg:pb-12"
+        className="scroll-reveal mx-auto max-w-6xl px-4 py-16 pb-8 sm:px-6 lg:py-24 lg:pb-12"
       >
         <GlassCard className="p-8 sm:p-12">
           <SectionHeading id="why-zen-heading" title={whyChooseZen.heading} />
