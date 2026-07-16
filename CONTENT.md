@@ -154,7 +154,8 @@ Not covered by text — track what real photo/asset belongs in each slot. Update
 
 | Slot | Page | Suggested placeholder label | Status |
 |---|---|---|---|
-| Logo | Nav / Footer | — | ✅ Provided by client |
+| Logo | Nav / Footer | "Logo" | ⬜ Placeholder — awaiting `public/images/logo.svg` from client |
+| Favicon | Browser tab (all pages) | — | ⬜ Not set — derive from logo once supplied (`app/icon.svg`) |
 | Hero image | Home | "Hero — Entrepreneur at Work" | ⬜ Placeholder |
 | About section image | Home | "About — Community/Training" | ⬜ Placeholder |
 | Zen Model illustration | Home | "Zen Model — Identify to Scale" | ⬜ Placeholder |

@@ -1,0 +1,184 @@
+@import 'tailwindcss';
+
+/*
+ * Organic Glass design tokens — see app/CLAUDE.md.
+ * These CSS variables are the single source of truth for brand color/theming.
+ * UI components consume them; do not reintroduce Tailwind's default palette
+ * for brand elements.
+ */
+:root {
+  --bg-base: #f6f1e4; /* warm cream, never pure white */
+  --text-main: #241c12; /* deep espresso brown, not pure black */
+  --text-soft: #4f4331; /* lightened espresso for secondary text (AA on cream) */
+  --accent-sage: #5f7a52; /* moss green — primary accent */
+  --accent-sage-deep: #4e6543; /* darkened sage — AA-compliant for filled buttons & small text */
+  --accent-terracotta: #c1682f; /* clay orange — secondary accent */
+  --accent-gold: #d9a441; /* turmeric gold — sparing highlight only */
+  --glass-surface: rgba(255, 255, 255, 0.14);
+  --glass-surface-strong: rgba(255, 255, 255, 0.22);
+  --glass-border: rgba(255, 255, 255, 0.35);
+}
+
+/* Expose brand tokens to Tailwind v4 utilities (e.g. text-accent-sage). */
+@theme inline {
+  --color-bg-base: var(--bg-base);
+  --color-text-main: var(--text-main);
+  --color-text-soft: var(--text-soft);
+  --color-accent-sage: var(--accent-sage);
+  --color-accent-sage-deep: var(--accent-sage-deep);
+  --color-accent-terracotta: var(--accent-terracotta);
+  --color-accent-gold: var(--accent-gold);
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-main);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent-sage);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--accent-gold);
+    color: var(--text-main);
+  }
+}
+
+@layer components {
+  /* Frosted glass surface — cards, nav bar, form panels (app/CLAUDE.md §4). */
+  .glass {
+    background: var(--glass-surface);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(95, 122, 82, 0.15);
+  }
+
+  /* Opt-in hover treatment for interactive glass surfaces. */
+  .glass-hover {
+    transition:
+      background-color 0.3s ease,
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .glass-hover:hover {
+    background: var(--glass-surface-strong);
+  }
+
+  /* Shared button base — min 44px height, visible focus ring (app/CLAUDE.md §7). */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0.625rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition:
+      transform 0.3s ease,
+      background-color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .btn-primary {
+    background: var(--accent-sage-deep);
+    color: var(--bg-base);
+    box-shadow: 0 8px 24px rgba(78, 101, 67, 0.35);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-sage);
+  }
+
+  .btn-secondary {
+    background: var(--glass-surface-strong);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.32);
+  }
+
+  /* One orchestrated staggered reveal per page load (app/CLAUDE.md §6). */
+  .reveal {
+    animation: rise 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+
+  .skip-link {
+    position: fixed;
+    top: -100%;
+    left: 1rem;
+    z-index: 100;
+    padding: 0.625rem 1.25rem;
+    border-radius: 9999px;
+    background: var(--accent-sage-deep);
+    color: var(--bg-base);
+    font-weight: 600;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    animation: none;
+  }
+
+  .glass-hover,
+  .btn {
+    transition: none;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+}
