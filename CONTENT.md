@@ -113,7 +113,7 @@ Tagline: *Opportunities for entrepreneurs with minimal infrastructure.*
 Intro: Products from Zen Enterprises brands like Ceramix are already available on e-commerce platforms like Amazon.in and Meesho — shop them under their respective brands.
 
 #### Brand — Ceramix
-- Logo: pending from client (placeholder until supplied — `public/images/ceramix-logo.png`)
+- Logo: ✅ supplied (`public/images/brands/ceramix-logo.png` — cursor artifact removed per client's filename note)
 - Platforms: Amazon.in, Meesho
 - Product listings:
 
@@ -122,11 +122,28 @@ Intro: Products from Zen Enterprises brands like Ceramix are already available o
 | Concrete Striped Round Jar (full listing: "Ceramix® \| Concrete Striped Round Jar \| Jewellery/Makeup/Table Organizer \| Home Decor \| Multipurpose Table Accessory") | Amazon.in | ₹199 (MRP ₹500) | https://amzn.in/d/0edN1CSz | ✅ Confirmed by client |
 | — | Meesho | — | — | ⬜ Awaiting links from client |
 
+#### Brand — Aura
+- Tagline (from client asset): "Scented Soaps and Candles"
+- Logo: ✅ supplied (`public/images/brands/aura-logo.jpg`)
+- Platforms / listings: ⬜ awaiting links from client
+
+#### Brand — DryNova
+- Tagline (from client asset): "Premium Dehydrated Produce"
+- Logo: ✅ supplied (`public/images/brands/drynova-logo.png`)
+- Platforms / listings: ⬜ awaiting links from client
+
+#### Brand — Resora
+- Tagline (from logo): "Handmade Elegance"
+- Logo: ✅ supplied (`public/images/brands/resora-logo.jpg`)
+- Platforms / listings: ⬜ awaiting links from client
+
+#### Product Catalogue (client-supplied photography, `public/images/catalogue/`)
+Cement Jars · Cement Jar Scented Candle · Candle Holders · Scented Candle · Custom Photo Coasters · Cement Jar Flower Pot · Cement Jar Pencil Holder · Plastic Jars
+(Extra shots on file, not yet used: "Custom Photo Coasters – 1/2". Catalogue items are shown without per-brand attribution — client to confirm which brand each belongs to if grouping is wanted.)
+
 Notes:
 - Price (₹199 / MRP ₹500) is a live Amazon figure and can go stale — update here + `zen-content.ts` if it changes, or remove the `price`/`mrp` fields to hide it.
-- Real product photo still needed → `public/images/ceramix-concrete-jar.jpg` (currently a labelled placeholder).
-
-More brands to be added here as the client provides names, logos, and listing URLs. Product links open on the retailer's site — Amazon/Meesho do not permit iframe embedding, so listings are shown as rich link cards.
+- Product links open on the retailer's site — Amazon/Meesho do not permit iframe embedding, so listings are shown as rich link cards.
 
 ### Zen Solutions
 Intro: Zen Enterprises provides complete support to transform ideas into successful businesses.
@@ -173,8 +190,8 @@ Not covered by text — track what real photo/asset belongs in each slot. Update
 
 | Slot | Page | Suggested placeholder label | Status |
 |---|---|---|---|
-| Logo | Nav / Footer | "Logo" | ⬜ Placeholder — awaiting `public/images/logo.svg` from client |
-| Favicon | Browser tab (all pages) | — | ⬜ Not set — derive from logo once supplied (`app/icon.svg`) |
+| Logo | Nav / Footer | — | ✅ Supplied — `public/images/logo-mark.png` (nav) + `public/images/logo-full.jpg` (footer). Logo tagline: "Building Trust. Creating Value. Enriching Lives." |
+| Favicon | Browser tab (all pages) | — | ✅ Set — `app/icon.png`, derived from the client's "Logo without text" mark |
 | Hero image | Home | "Hero — Entrepreneur at Work" | ⬜ Placeholder |
 | About section image | Home | "About — Community/Training" | ⬜ Placeholder |
 | Zen Model illustration | Home | "Zen Model — Identify to Scale" | ⬜ Placeholder |
@@ -185,7 +202,9 @@ Not covered by text — track what real photo/asset belongs in each slot. Update
 | Home Manufacturing category photo | Products | "Tailoring / Handicrafts" | ⬜ Placeholder |
 | Digital & Service category photo | Products | "Digital Services" | ⬜ Placeholder |
 | Contact page image | Contact | "Join the Journey" | ⬜ Placeholder |
-| Ceramix brand logo | Products (Shop Online) | "Ceramix" | ⬜ Placeholder — client will provide |
-| Ceramix product photo | Products (Shop Online) | "Ceramix Product" | ⬜ Placeholder |
+| Ceramix brand logo | Products (Shop Online) | — | ✅ Supplied — `public/images/brands/ceramix-logo.png` (cursor removed) |
+| Ceramix product photo | Products (Shop Online) | — | ✅ Supplied — `public/images/catalogue/cement-jars.jpg` |
+| Aura / DryNova / Resora logos | Products (Shop Online) | — | ✅ Supplied — `public/images/brands/` |
+| Catalogue photos (8) | Products (Product Catalogue) | — | ✅ Supplied — `public/images/catalogue/` |
 
 See `CLAUDE.md` → "Image & Asset Handling" for the placeholder convention (placehold.co, on-brand colors, real `next/image` usage).

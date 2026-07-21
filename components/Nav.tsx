@@ -27,7 +27,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const { logo, siteName } = globalContent;
+  const { logoMark, siteName } = globalContent;
 
   // Strengthen the glass + tighten the bar once the page scrolls. rAF-throttled
   // passive listener keeps it cheap on low-end devices.
@@ -69,18 +69,20 @@ export default function Nav() {
         <div className="flex min-h-16 items-center justify-between gap-4 py-2">
           <Link
             href="/"
-            className="inline-flex shrink-0 items-center rounded-xl"
+            className="inline-flex shrink-0 items-center gap-3 rounded-xl"
             onClick={() => setOpen(false)}
           >
             <Image
-              src={logo.src}
-              alt={logo.alt}
-              width={140}
-              height={42}
+              src={logoMark.src}
+              alt={logoMark.alt}
+              width={logoMark.width}
+              height={logoMark.height}
               priority
-              className="h-10 w-auto rounded-lg"
+              className="h-10 w-10 rounded-xl"
             />
-            <span className="sr-only">{siteName} — home</span>
+            <span className="font-display text-lg leading-tight font-bold">
+              {siteName}
+            </span>
           </Link>
 
           <ul className="hidden items-center gap-1 sm:flex">

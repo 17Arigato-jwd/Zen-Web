@@ -3,18 +3,19 @@ import Link from 'next/link';
 import { globalContent } from '@/content/zen-content';
 
 export default function Footer() {
-  const { siteName, taglines, joinTheJourney, contact, logo } = globalContent;
+  const { siteName, taglines, joinTheJourney, contact, logoFull } =
+    globalContent;
   return (
     <footer className="px-3 pt-24 pb-6 sm:px-6">
       <div className="glass mx-auto max-w-6xl rounded-3xl px-6 py-12 sm:px-12">
         <div className="grid gap-10 md:grid-cols-[1.2fr_1.1fr_0.9fr]">
           <div>
             <Image
-              src={logo.src}
-              alt={logo.alt}
-              width={140}
-              height={42}
-              className="h-10 w-auto rounded-lg"
+              src={logoFull.src}
+              alt={logoFull.alt}
+              width={logoFull.width}
+              height={logoFull.height}
+              className="h-auto w-44 rounded-2xl sm:w-52"
             />
             <p className="mt-5 font-display text-2xl font-semibold">
               {taglines.main}
