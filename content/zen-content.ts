@@ -80,6 +80,12 @@ export interface Brand {
   listings: ProductListing[];
 }
 
+export interface CatalogueItem {
+  /** Product name as supplied in the client's catalogue. */
+  name: string;
+  image: ImageSlot;
+}
+
 export interface ShopContent {
   eyebrow: string;
   heading: string;
@@ -87,6 +93,7 @@ export interface ShopContent {
   /** Note explaining links open on the retailer's site (no iframe embedding allowed). */
   disclosure: string;
   brands: Brand[];
+  catalogue: { heading: string; intro: string; items: CatalogueItem[] };
 }
 
 export interface GlobalContent {
@@ -98,7 +105,10 @@ export interface GlobalContent {
   contact: { heading: string; email: string; phone: string; phoneHref: string };
   /** Derived from the "Join the Journey" sentence — options for the inquiry form's audience select. */
   audiences: string[];
-  logo: ImageSlot;
+  /** Full logo lockup (mark + wordmark + tagline) — footer. */
+  logoFull: ImageSlot;
+  /** Square logo mark (no text) — nav bar; also the favicon source (app/icon.png). */
+  logoMark: ImageSlot;
   contactImage: ImageSlot;
 }
 
@@ -127,11 +137,17 @@ export const globalContent: GlobalContent = {
     "CSR partner",
     "Institution",
   ],
-  logo: {
-    src: "https://placehold.co/320x96/5F7A52/F6F1E4?text=Logo",
-    alt: "Zen Enterprises logo (placeholder)",
-    width: 320,
-    height: 96,
+  logoFull: {
+    src: "/images/logo-full.jpg",
+    alt: "Zen Enterprises logo — a home cradled in a hand, with the tagline Building Trust. Creating Value. Enriching Lives.",
+    width: 800,
+    height: 640,
+  },
+  logoMark: {
+    src: "/images/logo-mark.png",
+    alt: "Zen Enterprises logo mark — a gold Z inside a home cradled in a hand",
+    width: 256,
+    height: 256,
   },
   contactImage: {
     src: "https://placehold.co/800x600/5F7A52/F6F1E4?text=Join+the+Journey",
@@ -382,8 +398,7 @@ export const shopContent: ShopContent = {
   heading: "Zen Brands on E-commerce",
   intro:
     "Products from Zen Enterprises brands are already available on leading e-commerce platforms. Explore them under their respective brands and shop directly on Amazon.in and Meesho.",
-  disclosure:
-    "Links open the live listing on the retailer's website. Product names and images shown here are placeholders until each listing is confirmed.",
+  disclosure: "Links open the live listing on the retailer's website.",
   brands: [
     {
       id: "ceramix",
@@ -391,10 +406,10 @@ export const shopContent: ShopContent = {
       blurb:
         "A Zen Enterprises brand of concrete home-décor and organizers, available on Amazon.in and Meesho.",
       logo: {
-        src: "https://placehold.co/240x240/C1682F/F6F1E4?text=Ceramix",
-        alt: "Ceramix brand logo (placeholder — client will provide)",
-        width: 240,
-        height: 240,
+        src: "/images/brands/ceramix-logo.png",
+        alt: "Ceramix logo",
+        width: 375,
+        height: 100,
       },
       platforms: ["Amazon.in", "Meesho"],
       listings: [
@@ -407,15 +422,130 @@ export const shopContent: ShopContent = {
           platform: "Amazon.in",
           url: "https://amzn.in/d/0edN1CSz",
           image: {
-            // TODO: replace with the real product photo at
-            // public/images/ceramix-concrete-jar.jpg (a one-line src swap).
-            src: "https://placehold.co/600x600/5F7A52/F6F1E4?text=Concrete+Striped+Round+Jar",
-            alt: "Ceramix Concrete Striped Round Jar — a concrete organizer and home-décor accessory (placeholder image)",
-            width: 600,
-            height: 600,
+            src: "/images/catalogue/cement-jars.jpg",
+            alt: "Ceramix cement jars with fluted lids in cream, terracotta, ochre, sage and grey, styled with a flower pot and coaster",
+            width: 913,
+            height: 1024,
           },
         },
       ],
     },
+    {
+      id: "aura",
+      name: "Aura",
+      blurb: "Scented soaps and candles — a Zen Enterprises brand.",
+      logo: {
+        src: "/images/brands/aura-logo.jpg",
+        alt: "Aura logo — a sun in a leaf wreath, for scented soaps and candles",
+        width: 1024,
+        height: 559,
+      },
+      platforms: [],
+      listings: [],
+    },
+    {
+      id: "drynova",
+      name: "DryNova",
+      blurb: "Premium dehydrated produce — a Zen Enterprises brand.",
+      logo: {
+        src: "/images/brands/drynova-logo.png",
+        alt: "DryNova logo — premium dehydrated produce",
+        width: 921,
+        height: 329,
+      },
+      platforms: [],
+      listings: [],
+    },
+    {
+      id: "resora",
+      name: "Resora",
+      blurb: "Handmade elegance — a Zen Enterprises brand.",
+      logo: {
+        src: "/images/brands/resora-logo.jpg",
+        alt: "Resora logo — handmade elegance",
+        width: 800,
+        height: 800,
+      },
+      platforms: [],
+      listings: [],
+    },
   ],
+  catalogue: {
+    heading: "Product Catalogue",
+    intro: "Photos from the Zen Enterprises product catalogue.",
+    items: [
+      {
+        name: "Cement Jars",
+        image: {
+          src: "/images/catalogue/cement-jars.jpg",
+          alt: "Cement jars with fluted lids in cream, terracotta, ochre, sage and grey",
+          width: 913,
+          height: 1024,
+        },
+      },
+      {
+        name: "Cement Jar Scented Candle",
+        image: {
+          src: "/images/catalogue/cement-jar-scented-candle.jpg",
+          alt: "Scented candle poured in a cement jar",
+          width: 1024,
+          height: 576,
+        },
+      },
+      {
+        name: "Candle Holders",
+        image: {
+          src: "/images/catalogue/candle-holders.jpg",
+          alt: "Cement candle holders from the Zen product catalogue",
+          width: 1024,
+          height: 576,
+        },
+      },
+      {
+        name: "Scented Candle",
+        image: {
+          src: "/images/catalogue/scented-candle.jpg",
+          alt: "Lit scented candle in a cement holder with dripping yellow wax",
+          width: 1024,
+          height: 576,
+        },
+      },
+      {
+        name: "Custom Photo Coasters",
+        image: {
+          src: "/images/catalogue/custom-photo-coasters.jpg",
+          alt: "Custom photo coaster with a gold-flecked resin border on a display stand",
+          width: 931,
+          height: 1024,
+        },
+      },
+      {
+        name: "Cement Jar Flower Pot",
+        image: {
+          src: "/images/catalogue/cement-jar-flower-pot.jpg",
+          alt: "Cement jar styled as a flower pot decoration",
+          width: 1024,
+          height: 576,
+        },
+      },
+      {
+        name: "Cement Jar Pencil Holder",
+        image: {
+          src: "/images/catalogue/cement-jar-pencil-holder.jpg",
+          alt: "Cement jar pencil holder on a desk",
+          width: 1024,
+          height: 576,
+        },
+      },
+      {
+        name: "Plastic Jars",
+        image: {
+          src: "/images/catalogue/plastic-jars.jpg",
+          alt: "Colourful decorative plastic jars with labels, used as organizers",
+          width: 1024,
+          height: 659,
+        },
+      },
+    ],
+  },
 };
