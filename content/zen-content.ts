@@ -138,7 +138,7 @@ export const globalContent: GlobalContent = {
     "Institution",
   ],
   logoFull: {
-    src: "/images/logo-full.jpg",
+    src: "/images/logo-full.png",
     alt: "Zen Enterprises logo — a home cradled in a hand, with the tagline Building Trust. Creating Value. Enriching Lives.",
     width: 800,
     height: 640,
@@ -435,10 +435,10 @@ export const shopContent: ShopContent = {
       name: "Aura",
       blurb: "Scented soaps and candles — a Zen Enterprises brand.",
       logo: {
-        src: "/images/brands/aura-logo.jpg",
+        src: "/images/brands/aura-logo.png",
         alt: "Aura logo — a sun in a leaf wreath, for scented soaps and candles",
-        width: 1024,
-        height: 559,
+        width: 800,
+        height: 437,
       },
       platforms: [],
       listings: [],
@@ -461,7 +461,7 @@ export const shopContent: ShopContent = {
       name: "Resora",
       blurb: "Handmade elegance — a Zen Enterprises brand.",
       logo: {
-        src: "/images/brands/resora-logo.jpg",
+        src: "/images/brands/resora-logo.png",
         alt: "Resora logo — handmade elegance",
         width: 800,
         height: 800,
