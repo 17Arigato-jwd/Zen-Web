@@ -31,16 +31,14 @@ export default function BrandShowcase() {
             className="scroll-reveal p-6 sm:p-10"
           >
             <div className="flex flex-wrap items-center gap-5">
-              {/* Supplied logos have baked-in backgrounds — a white plate keeps them intentional over glass. */}
-              <span className="inline-flex shrink-0 items-center rounded-2xl bg-white p-2 shadow-[0_4px_16px_rgba(36,28,18,0.08)]">
-                <Image
-                  src={brand.logo.src}
-                  alt={brand.logo.alt}
-                  width={brand.logo.width}
-                  height={brand.logo.height}
-                  className="h-12 w-auto max-w-40 rounded-lg object-contain sm:h-14 sm:max-w-48"
-                />
-              </span>
+              {/* Logos are background-keyed transparent PNGs — they sit directly on the glass. */}
+              <Image
+                src={brand.logo.src}
+                alt={brand.logo.alt}
+                width={brand.logo.width}
+                height={brand.logo.height}
+                className="h-14 w-auto max-w-48 shrink-0 object-contain sm:h-16"
+              />
               <div className="min-w-0">
                 <h3 className="font-display text-2xl font-semibold sm:text-3xl">
                   {brand.name}
