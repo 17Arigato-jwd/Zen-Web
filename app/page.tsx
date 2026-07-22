@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Img from '@/components/Img';
 import Link from 'next/link';
 import GlassCard from '@/components/GlassCard';
 import SectionHeading from '@/components/SectionHeading';
@@ -47,7 +47,7 @@ export default function HomePage() {
         </div>
         <div className="reveal" style={{ animationDelay: '360ms' }}>
           <GlassCard className="p-2 sm:p-3">
-            <Image
+            <Img
               src={hero.image.src}
               alt={hero.image.alt}
               width={hero.image.width}
@@ -66,7 +66,7 @@ export default function HomePage() {
       >
         <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <GlassCard className="p-2 sm:p-3">
-            <Image
+            <Img
               src={about.image.src}
               alt={about.image.alt}
               width={about.image.width}
@@ -178,7 +178,7 @@ export default function HomePage() {
           “{zenModel.tagline}”
         </blockquote>
         <GlassCard className="mt-12 p-2 sm:p-3">
-          <Image
+          <Img
             src={zenModel.image.src}
             alt={zenModel.image.alt}
             width={zenModel.image.width}

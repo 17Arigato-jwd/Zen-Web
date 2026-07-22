@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Img from '@/components/Img';
 import Link from 'next/link';
 import { globalContent } from '@/content/zen-content';
 
@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="glass mx-auto max-w-6xl rounded-3xl px-6 py-12 sm:px-12">
         <div className="grid gap-10 md:grid-cols-[1.2fr_1.1fr_0.9fr]">
           <div>
-            <Image
+            <Img
               src={logoFull.src}
               alt={logoFull.alt}
               width={logoFull.width}
