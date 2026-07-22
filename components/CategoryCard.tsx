@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Img from '@/components/Img';
 import GlassCard from '@/components/GlassCard';
 import type { ProductCategory } from '@/content/zen-content';
 
@@ -15,7 +15,7 @@ export default function CategoryCard({
   return (
     <GlassCard as="article" lift className={`overflow-hidden ${className}`.trim()}>
       <div className="zoom-frame overflow-hidden">
-        <Image
+        <Img
           src={image.src}
           alt={image.alt}
           width={image.width}

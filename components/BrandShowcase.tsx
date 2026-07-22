@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Img from '@/components/Img';
 import GlassCard from '@/components/GlassCard';
 import ProductEmbedCard from '@/components/ProductEmbedCard';
 import SectionHeading from '@/components/SectionHeading';
@@ -32,7 +32,7 @@ export default function BrandShowcase() {
           >
             <div className="flex flex-wrap items-center gap-5">
               {/* Logos are background-keyed transparent PNGs — they sit directly on the glass. */}
-              <Image
+              <Img
                 src={brand.logo.src}
                 alt={brand.logo.alt}
                 width={brand.logo.width}
@@ -90,7 +90,7 @@ export default function BrandShowcase() {
             >
               <GlassCard as="figure" lift className="h-full overflow-hidden">
                 <div className="zoom-frame overflow-hidden">
-                  <Image
+                  <Img
                     src={item.image.src}
                     alt={item.image.alt}
                     width={item.image.width}

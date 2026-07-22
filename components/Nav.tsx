@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import Img from '@/components/Img';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { globalContent } from '@/content/zen-content';
@@ -72,7 +72,7 @@ export default function Nav() {
             className="inline-flex shrink-0 items-center gap-3 rounded-xl"
             onClick={() => setOpen(false)}
           >
-            <Image
+            <Img
               src={logoMark.src}
               alt={logoMark.alt}
               width={logoMark.width}

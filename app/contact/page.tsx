@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import Img from '@/components/Img';
 import ContactForm from '@/components/ContactForm';
 import GlassCard from '@/components/GlassCard';
 import SectionHeading from '@/components/SectionHeading';
@@ -59,7 +59,7 @@ export default function ContactPage() {
             </dl>
           </GlassCard>
           <GlassCard className="grow p-2 sm:p-3">
-            <Image
+            <Img
               src={contactImage.src}
               alt={contactImage.alt}
               width={contactImage.width}
